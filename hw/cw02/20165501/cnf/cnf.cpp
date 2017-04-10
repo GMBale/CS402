@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -311,24 +312,17 @@ int main(int argc, char *argv[])
     }
 	string str(argv[1]);
 
-	printf("%s\n", str.c_str());
-
     split(str, " ");
 
     int size = tokens.size();
     Formula *F = parseFormula();
-    printf("%s\n", F->toString().c_str());
-
-    printf("%lu\n", tokens.size());
 
     Formula *IF = implyFree(F);
-    printf("IF: %s\n", IF->toString().c_str());
 
     Formula *NNF = nnf(IF);
-    printf("NNF: %s\n", NNF->toString().c_str());
 
     Formula *CNF = cnf(NNF);
-    printf("CNF: %s\n", CNF->toString().c_str());
+    printf("%s\n", CNF->toString().c_str());
 
     infix(CNF);
     int n = INFIX.size();
