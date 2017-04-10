@@ -4,11 +4,11 @@
 
 using namespace std;
 
-vector<string> *;
+vector<string> tokens;
 
-vector<string> split(const string& str, const string& delim)
+void split(const string& str, const string& delim)
 {
-    vector<string> tokens;
+    tokens.clear();
     size_t prev = 0, pos = 0;
     do
     {
@@ -19,8 +19,50 @@ vector<string> split(const string& str, const string& delim)
         prev = pos + delim.length();
     }
     while (pos < str.length() && prev < str.length());
-    return tokens;
 }
+
+class Formula {
+    private:
+    public:
+};
+
+class Literal {
+    private:
+    public:
+        string name;
+        string toString() {
+            return name;
+        }
+};
+enum Ops {
+    AND,
+    OR,
+    IMPLY,
+    RIMPLY,
+    EQUIV,
+    NOT
+};
+class Op {
+    private:
+    public:
+        Ops opType;
+        string toStringOp() {
+            switch (opType) {
+                case AND:
+                    return "&";
+                case OR:
+                    return "|";
+                case IMPLY:
+                    return ">";
+                case RIMPLY:
+                    return "<";
+                case EQUIV:
+                    return "=";
+                case NOT:
+                    return "-";
+            }
+        }
+};
 
 int main(int argc, char *argv[])
 {
@@ -36,5 +78,8 @@ int main(int argc, char *argv[])
 	string str(argv[1]);
 
 	printf("%s", str.c_str());
+
+    split(str, " ");
+    printf("%lu", tokens.size());
     return 0;
 }
