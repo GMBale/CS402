@@ -2,3 +2,5 @@
 *.o
 *.swp
 hw/cw02/20165501/cnf/cnf
+*.log
+*.out
