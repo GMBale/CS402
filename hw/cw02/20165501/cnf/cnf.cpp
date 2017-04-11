@@ -7,7 +7,8 @@ using namespace std;
 
 vector<string> tokens;
 
-void split(const string& str, const string& delim) { tokens.clear();
+void split(const string& str, const string& delim) {
+    tokens.clear();
     size_t prev = 0, pos = 0;
     do
     {
